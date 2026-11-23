@@ -1,0 +1,6 @@
+{
+  "name": "Hầm Sâu",
+  "description": "Game thợ mỏ sinh tồn push-your-luck 7 ngày nộp cống trong lòng đất tối.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

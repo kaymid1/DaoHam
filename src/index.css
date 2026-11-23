@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
+  }
+
+  html, body {
+    font-family: var(--font-body);
+    background-color: #0d0906;
+    color: #f3e7d3;
+    overscroll-behavior-y: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes lampFlicker {
+  0%, 100% { opacity: 0.92; transform: scale(1); }
+  25% { opacity: 0.84; transform: scale(0.985); }
+  50% { opacity: 0.96; transform: scale(1.015); }
+  75% { opacity: 0.87; transform: scale(0.99); }
+}
+
+@keyframes shakeLight {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  20% { transform: translate3d(-3px, 2px, 0); }
+  40% { transform: translate3d(3px, -2px, 0); }
+  60% { transform: translate3d(-2px, -1px, 0); }
+  80% { transform: translate3d(2px, 2px, 0); }
+}
+
+@keyframes shakeHeavy {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  12% { transform: translate3d(-8px, 5px, 0) rotate(-0.8deg); }
+  25% { transform: translate3d(8px, -6px, 0) rotate(0.8deg); }
+  37% { transform: translate3d(-7px, -4px, 0) rotate(-0.5deg); }
+  50% { transform: translate3d(7px, 5px, 0) rotate(0.5deg); }
+  65% { transform: translate3d(-4px, 3px, 0); }
+  80% { transform: translate3d(4px, -2px, 0); }
+}
+
+@keyframes phaseEnter {
+  from { opacity: 0; transform: translate3d(0, 8px, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes shovelPlunge {
+  0% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  25% { transform: translate3d(8px, -16px, 0) rotate(24deg); }
+  60% { transform: translate3d(-6px, 22px, 0) rotate(-18deg) scale(1.06); }
+  100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+}
+
+@keyframes shockwaveRing {
+  0% { opacity: 0.9; transform: scale(0.35); }
+  100% { opacity: 0; transform: scale(1.65); }
+}
+
+@keyframes frenzyPulse {
+  0%, 100% { box-shadow: 0 0 18px rgba(251, 191, 36, 0.35); }
+  50% { box-shadow: 0 0 34px rgba(245, 158, 11, 0.72); }
+}
+
+@keyframes floatEmber {
+  0% { opacity: 0; transform: translate3d(0, 18px, 0) scale(0.7); }
+  25% { opacity: 0.75; }
+  75% { opacity: 0.55; }
+  100% { opacity: 0; transform: translate3d(6px, -42px, 0) scale(1.1); }
+}
+
+@keyframes alertPop {
+  0% { opacity: 0; transform: scale(0.86) translate3d(0, 8px, 0); }
+  65% { opacity: 1; transform: scale(1.03) translate3d(0, -2px, 0); }
+  100% { opacity: 1; transform: scale(1) translate3d(0, 0, 0); }
+}
+
+.animate-lamp {
+  animation: lampFlicker 3.6s ease-in-out infinite;
+}
+
+.animate-shake-light {
+  animation: shakeLight 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-shake-heavy {
+  animation: shakeHeavy 0.52s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-phase {
+  animation: phaseEnter 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-shovel-plunge {
+  animation: shovelPlunge 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.animate-shockwave {
+  animation: shockwaveRing 0.36s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-frenzy {
+  animation: frenzyPulse 0.7s ease-in-out infinite;
+}
+
+.animate-ember {
+  animation: floatEmber 4.2s ease-in-out infinite;
+}
+
+.animate-alert-pop {
+  animation: alertPop 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-lamp,
+  .animate-shake-light,
+  .animate-shake-heavy,
+  .animate-phase,
+  .animate-shovel-plunge,
+  .animate-shockwave,
+  .animate-frenzy,
+  .animate-ember,
+  .animate-alert-pop {
+    animation: none !important;
+  }
+}
+
+/* Thanh cuộn tinh tế cho bảng điều khiển tối */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(20, 14, 9, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(180, 130, 70, 0.35);
+  border-radius: 9999px;
+}
